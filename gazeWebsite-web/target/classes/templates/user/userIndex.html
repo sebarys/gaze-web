@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <title>Take Project</title>
+
+    <script th:src="@{/js/bower_components/angular/angular.min.js}"></script>
+    <script th:src="@{/js/bower_components/angular-route/angular-route.min.js}"></script>
+    <script th:src="@{/js/bower_components/angular-resource/angular-resource.min.js}"></script>
+    <script th:src="@{/js/bower_components/jquery/dist/jquery.min.js}"></script>
+    <script th:src="@{/js/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/js/bower_components/bootstrap/dist/css/bootstrap.min.css}"/>
+
+    <script th:src="@{/js/user/RouteProvider.js}"></script>
+    <script th:src="@{/js/user/stimulsControllers.js}"></script>
+    <script th:src="@{/js/user/stimulsListControllers.js}"></script>
+    <script th:src="@{/js/user/stimulsServices.js}"></script>
+    <script th:src="@{/js/user/resultsControllers.js}"></script>
+    <script th:src="@{/js/user/resultsServices.js}"></script>
+    <script th:src="@{/js/user/indexServices.js}"></script>
+
+    <!--<script type="text/javascript" src="../scripts/ClientControllers.js"></script>-->
+    <!--<script type="text/javascript" src="../scripts/InvoiceControllers.js"></script>-->
+    <!--<script type="text/javascript" src="../scripts/ProductControllers.js"></script>-->
+    <!--<script type="text/javascript" src="../scripts/WarehouseControllers.js"></script>-->
+    <!--<script type="text/javascript" src="../scripts/RouteProvider.js"></script>-->
+</head>
+<body>
+<div class="container" ng-app="mainApp">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TakeProject</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#home">Home</a></li>
+                <li><a href="#stimuls">Stimuls</a></li>
+                <li><a href="#results">Results</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-controller="MainPageController as mainPage">
+                <li><a><span ng-bind="mainPage.username"></span></a></li>
+                <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div ng-view="true"></div>
+
+</div>
+</body>
+</html>

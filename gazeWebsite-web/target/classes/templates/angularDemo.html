@@ -1,0 +1,43 @@
+<style>
+    .grid {
+        width: 90%;
+        height: 30%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<h2>Angular demo</h2>
+<br><label>Wypisywanie zmiennych z controllera: {{demo}}</label></br>
+
+<br><label>Zmienna html(ng-model):{{zmiennaHtml}} <input type="text" ng-model="zmiennaHtml"/> </label></br>
+
+<br><label>Ng-show:
+    <button ng-show="show">Show={{show}}</button>
+    <input type="checkbox" ng-model="show"/> </label></br>
+
+<br><label>Ng-hide:
+    <button ng-hide="hide">Hide={{hide}}</button>
+    <input type="checkbox" ng-model="hide"/> </label></br>
+
+<br><label>Route param:{{param}} </label></br>
+
+<br><label>Zadanie do backendu:<input type="text" ng-model="sectionId"/> <button ng-click="getSection(sectionId);">send</button> </label></br>
+<br><label>Odpowiedz: {{section}} </label></br>
+
+<a title="My Tooltip!" data-toggle="tooltip" data-placement="top" tooltip="true">My Tooltip Link</a>
+
+
+<span href="#demo" class="btn btn-info" data-toggle="collapse">Simple collapsible</span>
+
+<div id="demo" class="collapse">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+</div>
+        <button ng-click="deleteModel()" >usun</button>
+
+<button ng-click="logoutUser()">Logout</button>
+<div ui-grid="gridOptions" ui-grid-pagination="true" class="grid"></div>
+        {{gridOptions.data}}
+

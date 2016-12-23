@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://formvalidation.io/vendor/formvalidation/css/formValidation.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://formvalidation.io/vendor/formvalidation/js/formValidation.min.js"></script>
+    <script src="http://formvalidation.io/vendor/formvalidation/js/framework/bootstrap.min.js"></script>
+    <script src="http://www.freenetmall.com/common/jquery/FormHelpers/docs/assets/js/bootstrap-formhelpers-phone.format.js"></script>
+    <script src="http://www.freenetmall.com/common/jquery/FormHelpers/docs/assets/js/bootstrap-formhelpers-phone.js"></script>
+    <script type="text/javascript">
+        function ShowHideDiv(checkCompany) {
+            var dvCompanyName = document.getElementById("companyName");
+            dvCompanyName.style.display = checkCompany.checked ? "block" : "none";
+            var dvCompanyDesc = document.getElementById("companyDesc");
+            dvCompanyDesc.style.display = checkCompany.checked ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+<p class="text-center">
+    <button class="btn btn-default" data-toggle="modal" data-target="#registerModal">Register</button>
+</p>
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="Register" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Register</h5>
+            </div>
+
+            <div class="modal-body">
+                <form id="registerForm" method="post" class="form-horizontal">
+
+                    <div class="form-group">
+                    <label class="col-xs-3 control-label">First name</label>
+                    <div class="col-xs-8">
+                        <input type="text" class="form-control" name="firstName">
+                    </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Last name</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="lastName">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Email</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Password</label>
+                        <div class="col-xs-8">
+                            <input type="password" class="form-control" name="password" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Retype password</label>
+                        <div class="col-xs-8">
+                            <input type="password" class="form-control" name="confirmPassword" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Phone number</label>
+                        <div class="col-xs-8">
+                            <input type="text" name="phone"
+                                   class="input-medium bfh-phone form-control"
+                                   id="form-phone" data-format="ddd ddd ddd">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">City</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="city">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Address</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="address">
+                        </div>
+                    </div>
+                    <label for="checkCompany">
+                        <input type="checkbox" id="checkCompany" onclick="ShowHideDiv(this)"/>
+                        Register as company
+                    </label>
+
+                    <div id="companyName" class="form-group" style="display:none">
+                        <label class="col-xs-3 control-label">Company name</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="companyName">
+                        </div>
+                    </div>
+                    <div id="companyDesc" class="form-group" style="display:none">
+                        <label class="col-xs-3 control-label">Company description</label>
+                        <div class="col-xs-8">
+                            <textarea  class="form-control" rows="8" name="companyDesc"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-5 col-xs-offset-3">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="reset" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#registerForm').formValidation({
+            framework: 'bootstrap',
+            excluded: 'disabled',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                firstName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The first name is required'
+                        }
+                    }
+                },
+                lastName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The last name is required'
+                        }
+                    }
+                },
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The email is required'
+                        },
+                        emailAddress: {
+                            message: 'The value is not a valid email address'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The password is required'
+                        }
+                    }
+                },
+                confirmPassword: {
+                    validators: {
+                        notEmpty: {
+                        },
+                        identical: {
+                            field: 'password',
+                            message: 'The password and its confirm are not the same'
+                        }
+                    }
+                },
+                city: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The city name is required'
+                        }
+                    }
+                },
+                address: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The address is required'
+                        }
+                    }
+                },
+                phone: {
+                    validators: {
+                        regexp: {
+                            regexp: /^(\d{3}) (\d{3}) (\d{3}\d?)$/i,
+                            message: 'The phone number is incorrect'
+                        },
+                        notEmpty: {
+                            message: ' The phone number is required'
+                        }
+
+                    }
+                },
+                companyDesc: {
+                    validators: {
+                        callback: {
+                            message:'Wiaodmosc do was',
+                            callback: function(value, validator, $field) {
+                                if(document.getElementById("companyDesc").style.display == "block") {
+                                    if(value.length < 20) {
+                                        return {
+                                            valid: false,
+                                            message: 'You must write company description, more than 20 signs'
+                                        }
+                                    }
+                                }
+                                return true;
+                            }
+                        }
+                    }
+                },
+                companyName: {
+                    validators: {
+                        callback: {
+                            message:'Wiaodmosc do was',
+                            callback: function(value, validator, $field) {
+                                if(document.getElementById("companyName").style.display == "block"){
+                                    if(value.length < 1) {
+                                        return {
+                                            valid: false,
+                                            message: 'The company name is required'
+                                        }
+                                    }
+                                }
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+        });
+    });
+    $('#registerModal').on('hidden.bs.modal', function() {
+        $('#registerForm').formValidation('resetForm', true);
+        $('#checkCompany').prop('checked', false);
+        document.getElementById("companyName").style.display ="none";
+        document.getElementById("companyDesc").style.display ="none";
+    });
+</script>
+
+</body>
+</html>

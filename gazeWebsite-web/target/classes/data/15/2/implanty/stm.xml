@@ -1,0 +1,202 @@
+<stimuli>
+    <stimulus>
+        <answers>
+            <answer>kobieta</answer>
+            <answer>mężczyzna</answer>
+        </answers>
+        <clickable>false</clickable>
+        <duration>0</duration>
+        <extendable>false</extendable>
+        <no>0</no>
+        <question>Proszę podać płeć</question>
+        <type>P</type>
+    </stimulus>
+    <stimulus>
+        <answers>
+            <answer>0-20</answer>
+            <answer>20-30</answer>
+            <answer>30-40</answer>
+            <answer>40-50</answer>
+            <answer>50-60</answer>
+            <answer>60+</answer>
+        </answers>
+        <clickable>false</clickable>
+        <duration>0</duration>
+        <extendable>false</extendable>
+        <no>0</no>
+        <question>Proszę o podanie wieku</question>
+        <type>P</type>
+    </stimulus>
+    <stimulus>
+        <answers>
+            <answer>kobieta</answer>
+            <answer>mężczyzna</answer>
+        </answers>
+        <clickable>false</clickable>
+        <duration>0</duration>
+        <extendable>false</extendable>
+        <no>0</no>
+        <question>Proszę podać płeć</question>
+        <type>P</type>
+    </stimulus>
+    <stimulus>
+        <answers>
+            <answer>laik</answer>
+            <answer>dentysta</answer>
+            <answer>implantolog</answer>
+        </answers>
+        <clickable>false</clickable>
+        <duration>0</duration>
+        <extendable>false</extendable>
+        <no>0</no>
+        <question>Proszę podać kwalifikacje</question>
+        <type>P</type>
+    </stimulus>
+
+    <stimulus>
+        <answers>
+            <answer>OK</answer>
+        </answers>
+        <clickable>false</clickable>
+        <duration>0</duration>
+        <extendable>false</extendable>
+        <no>0</no>
+        <question>Test składa się z dwóch części.
+W pierwszej proszę obejrzeć zdjęcia twarzy starając się 
+ocenić estetykę oraz atrakcyjność uśmiechu.
+Uwaga! Zdjęcie tej samej osoby może się pojawić kilka razy.
+</question>
+        <type>P</type>
+    </stimulus>
+
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>15_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>5_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>3_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>18_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>2_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>16_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>12_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>8_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>5_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>10_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>15_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>13_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>5_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>17_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>9_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>18_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>9_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>3_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>8_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>18_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>1_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>7_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>8_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>6_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>2_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>16_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>7_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>10_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>7_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>1_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>12_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>17_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>16_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>6_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>11_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>3_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>9_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>6_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>11_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>17_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>15_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>13_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>10_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>2_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>12_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>13_2.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>1_1.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>false</clickable><duration>5</duration><extendable>false</extendable><fileName>11_3.jpg</fileName><no>0</no><type>I</type></stimulus>
+
+
+    <stimulus>
+        <answers>
+            <answer>OK</answer>
+        </answers>
+        <clickable>false</clickable>
+        <duration>0</duration>
+        <extendable>false</extendable>
+        <no>0</no>
+        <question>Dziękujemy! Teraz proszę obejrzeć te same zdjęcia 
+i ocenić estetykę oraz atrakcyjność uśmiechu klikając w odpowiednie 
+miejsce na podziałce u góry ekranu.
+</question>
+        <type>P</type>
+    </stimulus>
+
+
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>9_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>13_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>5_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>12_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>15_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>18_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>11_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>13_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>16_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>6_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>2_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>3_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>16_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>7_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>16_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>13_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>6_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>10_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>8_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>3_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>5_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>8_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>3_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>11_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>7_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>1_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>12_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>6_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>10_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>18_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>17_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>1_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>2_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>9_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>12_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>11_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>17_1_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>8_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>10_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>2_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>18_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>15_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>17_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>7_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>5_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>1_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>9_3_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+<stimulus><answers/><clickable>true</clickable><duration>60</duration><extendable>false</extendable><fileName>15_2_vas.jpg</fileName><no>0</no><type>I</type></stimulus>
+
+
+    <stimulus>
+        <answers>
+            <answer>OK</answer>
+        </answers>
+        <clickable>false</clickable>
+        <duration>0</duration>
+        <extendable>false</extendable>
+        <no>0</no>
+        <question>To już koniec.
+Dziękujemy za udział w badaniu!</question>
+        <type>P</type>
+    </stimulus>
+
+
+</stimuli>

@@ -1,0 +1,34 @@
+{
+  "name": "trainingCompany",
+  "homepage": "https://github.com/LabBD/LabBD",
+  "authors": [
+    "LabBD <gorfion1@gmail.com>"
+  ],
+  "description": "bower file with dependency",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-resource": "latest",
+    "bootstrap": "^3.0.0",
+    "angular-ui-grid": "^3.1.1",
+    "font-awesome": "fontawesome#^4.6.1",
+    "form.validation": "*",
+    "bootstrap-formhelpers": "bootstrap-form-helpers#^2.3.0",
+    "AngularJS-Toaster": "angularjs-toaster#^2.0.0",
+    "angular-google-chart": "0.1.0"
+  },
+  "resolutions": {
+    "angular": "1.5.5"
+  }
+}

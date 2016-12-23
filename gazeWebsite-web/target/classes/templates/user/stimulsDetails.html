@@ -1,0 +1,62 @@
+<div class="container">
+    <h2>Stimuls</h2>
+    <h3><p>Browse available stimuls!</p></h3>
+    <br/>
+
+	<div class="col-sm-12">
+        <br/>
+        <h3><p>List of all stimuls:</p></h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+				<th>ID</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+			<tr ng-repeat="stimul in stimuls.stimulsList.stimul">
+				<td>{{stimul.id}}</td>
+                <td>{{stimul.name}}</td>
+				<!--tutaj jeszcze w sumie od razu moze byc przycisk do pobrania-->
+				<td>
+                    <span class="glyphicon glyphicon-remove" ng-click="deleteProduct(product)"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <input ng-model="stimuls.stimulId" type="text"/>
+    <button ng-click="stimuls.getStimul()">Download</button>
+
+    <!--<form method="POST" enctype="multipart/form-data" action="/stimuls">-->
+        <!--<table>-->
+            <!--<tr>-->
+                <!--<td>File to upload:</td>-->
+                <!--<td><input ng-model="stimuls.stimulFile" type="file" name="file"/></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Stimul name:</td>-->
+                <!--<td><input ng-model="stimuls.stimulName" type="text" name="stimulName" value="1"/></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td></td>-->
+                <!--<td><input ng-click="stimuls.validateStimul()" type="submit" value="Upload"/></td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    <!--</form>-->
+
+    <form name="upload" class="form" data-ng-submit="stimuls.registerStimul()">
+        <input type="file" name="file" multiple
+               onchange="angular.element(this).scope().uploadedFile(this)" />
+
+        <td>Stimul name:</td>
+        <td><input ng-model="stimuls.stimulName" type="text" name="stimulName"/></td>
+
+        <button type="submit">Upload </button>
+    </form>
+
+    <input ng-model="stimuls.stimulToDeleteId" type="text"/>
+    <button ng-click="stimuls.deleteStimul(stimuls.stimulToDeleteId)">Download</button>
+
+</div>

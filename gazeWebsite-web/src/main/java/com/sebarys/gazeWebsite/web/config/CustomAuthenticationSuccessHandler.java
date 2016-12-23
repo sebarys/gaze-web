@@ -29,8 +29,11 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         StringBuilder stringBuilder = new StringBuilder();
         
         for(GrantedAuthority grantedAuthority: authentication.getAuthorities()){
-            if("ROLE_USER".equals(grantedAuthority.getAuthority()) || "ROLE_ADMIN".equals(grantedAuthority.getAuthority())){
+            if("ROLE_USER".equals(grantedAuthority.getAuthority())){
                 stringBuilder.append("/user/#");
+                break;
+            } else if("ROLE_ADMIN".equals(grantedAuthority.getAuthority())) {
+                stringBuilder.append("admin/#");
                 break;
             }
         }

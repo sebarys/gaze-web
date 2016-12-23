@@ -1,0 +1,374 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Szczegoly oferty</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">-->
+<style>
+
+    .main_content {
+        margin-left: 7%;
+        margin-right: 7%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .btn-primary {
+        margin: 3%;
+        background-color: #4e8f55;
+    }
+
+    .element-with-border-radius {
+        border-radius: 10px 10px 10px 10px;
+        border-style: solid;
+        border-width: thin;
+        border-color: #4e8f55;
+    }
+
+    .info_buttons {
+        margin: 5px;
+    }
+
+    h2 {
+        color: darkgreen;
+        font-weight: bold;
+    }
+
+    h4 {
+        color: darkgreen;
+        font-weight: bold;
+    }
+
+    .carousel {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    table {
+        height: 100%;
+        width: 100%;
+    }
+
+    .vertical-alignment-helper {
+        display: table;
+        height: 100%;
+        width: 100%;
+        pointer-events: none; /* This makes sure that we can still click outside of the modal to close it */
+    }
+
+    .vertical-align-center {
+        /* To center vertically */
+        display: table-cell;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+
+    .modal-content {
+        /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+        width: inherit;
+        height: inherit;
+        /* To center horizontally */
+        margin: 0 auto;
+        pointer-events: all;
+    }
+
+    .panel {
+        position: relative;
+    }
+
+    .panel > .panel-heading:after, .panel > .panel-heading:before {
+        position: absolute;
+        top: 11px;
+        left: -16px;
+        right: 100%;
+        width: 0;
+        height: 0;
+        display: block;
+        content: " ";
+        border-color: transparent;
+        border-style: solid solid outset;
+        pointer-events: none;
+    }
+
+    .panel > .panel-heading:after {
+        border-width: 7px;
+        border-right-color: #f7f7f7;
+        margin-top: 1px;
+        margin-left: 2px;
+    }
+
+    .panel > .panel-heading:before {
+        border-right-color: #ddd;
+        border-width: 8px;
+    }
+
+    #commentsHeader, #comments {
+        margin-top: 20px;
+    }
+
+    .animated {
+        -webkit-transition: height 0.2s;
+        -moz-transition: height 0.2s;
+        transition: height 0.2s;
+    }
+
+    .stars {
+        margin: 20px 0;
+        font-size: 24px;
+        color: #d17581;
+    }
+
+</style>
+<div class="container">
+
+    <toaster-container></toaster-container>
+
+    <div class="col-sm-12">
+
+        <div class="col-sm-12"><label class="element-with-border-radius " style="margin-bottom: 10px">
+            <div class="col-sm-3">
+
+
+                <!-- <img src="../attachment/files/{{offerDetails.mainPhoto}}" class="img-rounded"
+                      style="width: 98%; height: 98%; margin: 10px">-->
+                <div id="Carousel" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <li ng-repeat-start="attachment in attachments" ng-if="$first" data-target="Carousel"
+                            data-slide-to="0"
+                            class="active"></li>
+                        <li ng-repeat-end ng-if="!$first" data-target="Carousel" data-slide-to="$index"></li>
+
+                    </ol>
+                    <div class="carousel-inner">
+                        <div ng-repeat-start="attachment in attachments" ng-if="$first" class="item active">
+                            <img src="/attachment/files/{{attachment.offerId}}/{{attachment.name}}"
+                                 class="img-responsive">
+                        </div>
+
+                        <div ng-repeat-end ng-if="!$first" class="item">
+                            <img src="/attachment/files/{{attachment.offerId}}/{{attachment.name}}"
+                                 class="img-responsive">
+                        </div>
+                    </div>
+                    <span class="left carousel-control" data-target="#Carousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </span>
+                    <span class="right carousel-control" data-target="#Carousel" data-slide="next">
+                       <span class="glyphicon glyphicon-chevron-right"></span>
+                    </span>
+                </div>
+
+            </div>
+            <div class="col-sm-9">
+                <h2 align="center" class="element-with-border-radius">
+                    {{offerDetails.name}}
+                </h2>
+                <h5>
+                    {{offerDetails.description}}
+                </h5>
+                <br/><br/>
+
+                <div class="info_buttons">
+                    <button type="button" class="btn btn-success" style="cursor:default">Ilość dostępnych miejsc: <span
+                            class="badge">{{offerDetails.quantity}}</span>
+                    </button>
+                    <button type="button" class="btn btn-info" style="cursor:default">Cena za jedno miejsce: <span
+                            class="badge">{{offerDetails.price}} PLN</span>
+                    </button>
+                    <button type="button" class="btn btn-warning" style="cursor:default">Kategoria: <span
+                            class="badge">{{offerDetails.offerCategoryName}}</span></button>
+
+                </div>
+
+                </button>
+
+            </div>
+
+        </label>
+        </div>
+
+
+        <div style="margin-left: 3%;margin-right: 3%;">
+            <div class="col-sm-12">
+
+                <h2 align="center">Szczegoly oferty</h2>
+
+                <h4>Ogólnie</h4>
+                Tutaj mamy szczegolowy opis oferty. Dlaczego szczegolowy? Poniewaz nieszczegolowy jest wyzej. Potrzebny
+                byl
+                szczegolowy opis.
+                Opos czy ty to widzisz? Grecja Korfu :D
+                Opos czy ty to widzisz? Grecja Korfu :D
+                Opos czy ty to widzisz? Grecja Korfu :D
+                <br/><br/>
+                <h4>Atrakcje</h4>
+                Opos czy ty to widzisz? Grecja Korfu :D
+                Opos czy ty to widzisz? Grecja Korfu :D
+                Opos czy ty to widzisz? Grecja Korfu :D
+                Opos czy ty to widzisz? Grecja Korfu :D
+                Opos czy ty to widzisz? Grecja Korfu :D
+                Opos czy ty to widzisz? Grecja Korfu :D
+                Opos czy ty to widzisz? Grecja Korfu :D
+                Opos czy ty to widzisz? Grecja Korfu :D
+                Opos czy ty to widzisz? Grecja Korfu :D
+                <br/><br/>
+                <h4>Zadzwon!</h4>
+                Kamil S.: 777 888 999 <br/>
+                Prezes Danny: 555 555 552<br/><br/>
+                <p>{{done}}</p>
+                <br/><br/>
+
+                <div class="btn-group btn-group-justified">
+                    <!--<a class="btn btn-primary" ng-click="addToBasket()">Dodaj do koszyka!</a>-->
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add to basket</a>
+                    <a class="btn btn-primary" ng-click="redirectToSearchPage()">Back to the last page</a>
+                </div>
+            </div>
+
+            <!-- komentarze -->
+
+            <div id="comment-adding" class="container" ng-hide="notLogged">
+                <div align="center">
+                    <a style="width: 50%;" class="btn btn-primary" id="open-review-box">Leave a Comment</a>
+                </div>
+                <div class="row" id="post-review-box" style="display:none; margin-top:40px;">
+                    <div class="col-md-12">
+                        <input id="ratings-hidden" name="rating" type="hidden">
+                                        <textarea ng-trim=10 ng-model="commentContent" class="form-control animated"
+                                                  cols="50"
+                                                  id="new-review" name="comment"
+                                                  placeholder="Enter your review here..." rows="5"></textarea>
+                        <div class="text-right">
+                            <div class="stars starrr" data-rating="0"></div>
+                            <a class="btn btn-danger btn-sm" id="close-review-box"
+                               style="display:none; margin-right: 10px;">
+                                <span class="glyphicon glyphicon-remove"></span>Cancel</a>
+                            <button class="btn btn-success btn-lg"
+                                    ng-click="addComment()">Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="comment-displaying" style="position: relative">
+                <div id="commentsHeader" ng-hide="!comments.length">
+                    <h2>Comments:</h2>
+                </div>
+                <div id="noCommentsInfo" ng-show="!comments.length">
+                    <h2>There are no comments yet</h2>
+                </div>
+
+                <div id="comments"
+                     ng-repeat="comment in comments  | orderBy:'-date' | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <div class="col-sm-1">
+                        <div class="thumbnail">
+                            <img class="img-responsive user-photo"
+                                 src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <strong> {{comment.authorName}}</strong>
+                                <span class="text-muted">commented {{getCommentDate(comment)}} </span>
+                            <span ng-hide="!comment.rate" ng-repeat="n in [] | range:comment.rate" style="float: right;"
+                                  class="glyphicon glyphicon-star"
+                                  aria-hidden="true"></span>
+                            </div>
+                            <div class="panel-body">
+                                {{comment.text}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="comment-pagination" style="margin-top:50px">
+                <nav>
+                    <ul class="pager">
+                        <li class="previous" ng-hide="currentPage >= comments.length/pageSize - 1"
+                            ng-click="currentPage=currentPage+1"><a>&larr;
+                            Older <span aria-hidden="true"></span></a>
+                        </li>
+                        <li class="next" ng-hide="currentPage == 0" ng-click="currentPage=currentPage-1"><a>Newer <span
+                                aria-hidden="true">&rarr;</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <!--<div id="myModal" class="modal" ng-show="display" role="dialog" style="display:flex">-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="Register" aria-hidden="true">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Add to basket</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p class="information">{{information}}</p>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <th class="text-align-center">Quantity</th>
+                            <th class="text-align-center">Price</th>
+                            <th class="text-align-center">Amount</th>
+                        </tr>
+                        <tr class="text-align-center">
+                            <td>
+                                <input type="number" min="1" ng-change="tooBigQuantity()"
+                                       ng-model="order.quantity" ng-init="order.quantity = 1">
+                            </td>
+                            <td>
+                                <label style="color: black">
+                                    {{offerDetails.price}} PLN
+                                </label>
+                            </td>
+                            <td>
+                                <label style="color: black">
+                                    {{offerDetails.price*order.quantity}} PLN
+                                </label>
+                            </td>
+
+                        </tr>
+                    </table>
+                    <p ng-show=false ng-init="tooBigQuantity"></p>
+                    <p ng-show=false ng-init="getUsername"></p>
+                    <p ng-show=false ng-init="canBuy"></p>
+                    <p ng-show="tooBigQuantity()">There is not enough available courses</p>
+                    <p ng-show="notLogged">Please log in to add this course to your basket</p>
+                    <div class="modal-footer">
+                        <button type="button" ng-show="canBuy" class="btn btn-default" ng-click="addToBasket()"
+                                data-dismiss="modal">
+                            Buy
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--
+</body>
+</html>
+-->

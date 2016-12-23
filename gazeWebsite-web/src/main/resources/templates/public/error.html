@@ -1,0 +1,86 @@
+
+<style>
+        h3.modal-title {
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        p.information {
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .vertical-alignment-helper {
+            display:table;
+            height: 100%;
+            width: 100%;
+            pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+        }
+        .vertical-align-center {
+            /* To center vertically */
+            display: table-cell;
+            vertical-align: middle;
+            pointer-events:none;
+        }
+        .modal-content {
+            /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+            width:inherit;
+            height:inherit;
+            /* To center horizontally */
+            margin: 0 auto;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            padding: 30px;
+            max-width: 700px;
+            width: 100% !important;
+            background-color: #F5F6CE;
+            margin: 0 auto;
+            border-radius: 4px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            font-family: Arial;
+            font-size: 15px;
+        }
+
+        .btn {
+
+            color: #fff;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+            background-color: #0d8006;
+            font-family: Arial;
+            /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+        }
+        .btn:hover {
+            text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+            background-color: #0d8006;
+            /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+        }
+</style>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal" role="dialog" style="display:flex">
+
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Modeader</h3>
+            </div>
+            <div class="modal-body">
+                <p class ="information" >{{information}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="goMainPage()" data-dismiss="modal">Main page</button>
+                <button type="button" class="btn btn-default" ng-click="goBack()" data-dismiss="modal">Back</button>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</div>

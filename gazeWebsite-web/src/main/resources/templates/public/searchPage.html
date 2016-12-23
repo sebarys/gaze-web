@@ -1,0 +1,271 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20" ng-app="">
+-->
+<style>
+    .btn.btn-success {
+        margin-top: 6%;
+        text-overflow: ellipsis;
+
+    }
+
+    .btn-success.active {
+        background-color: #0d8006;
+    }
+
+    .element-with-border {
+        border-style: solid;
+        border-width: thin;
+    }
+
+    .element-with-border-radius {
+        border-radius: 10px 10px 10px 10px;
+        border-style: solid;
+        border-width: thin;
+        border-color: #4e8f55;
+        margin-bottom: 10px;
+        margin-left: 15%;
+    }
+    .element-with-border-radius-without-margin {
+        border-radius: 10px 10px 10px 10px;
+        border-style: solid;
+        border-width: thin;
+        border-color: #4e8f55;
+        margin-bottom: 10px;
+    }
+
+    .element-with-border-radius-medium {
+        border-radius: 10px 10px 10px 10px;
+        border-style: solid;
+        border-width: medium;
+        border-color: #4e8f55;
+        margin-bottom: 10px;
+        margin-left: 15%;
+
+    }
+
+    .green .pagination > li > a,
+    .green .pagination > li > span {
+
+        border: 1px solid #0d8006;
+    }
+
+    .pagination > li.active > a,
+    .pagination > li.active > a:hover {
+        background-color: #0d8006;
+        color: #fff;
+    }
+
+    #custom-search-input {
+        margin: 10px 0 0;
+        padding: 0;
+    }
+
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 0 0;
+        margin-top: 2px;
+        position: relative;
+        left: -24px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color: #0d8006;
+        z-index: 59;
+    }
+
+    .form-control:focus {
+        border-color: #0d8006;
+        background-color: #F5F6CE;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.25);
+    }
+
+    .col-md-12 {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 5%;
+    }
+
+    .btn-default {
+        background-color: #5cb85c;
+        color: white;
+    }
+
+    .btn-default:hover {
+        background-color: green;
+        color: white;
+    }
+
+</style>
+<div style="margin: 3%;">
+    <div class="col-sm-3" style=" border-style: solid; border-width: thin; border-color: #4e8f55;">
+        <p class="text-center" ng-hide="categoryIsLoaded">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+            <span class="sr-only">Loading...</span>
+        </p>
+
+        <div ng-show="categoryIsLoaded" class="btn-group-vertical" data-toggle="buttons" style="max-height: 100%; max-width: 100%;">
+            <div ng-repeat="category in allCategory">
+                <label ng-if="!category.isSelected" class="btn btn-success"
+                       ng-click="addToSelectedCategory(category)" title="{{category.description}}" data-toggle="tooltip"
+                       data-placement="top" tooltip="true">
+                    <input type="checkbox" autocomplete="off" ng-model="category.isSelected"> {{category.name}}
+                </label>
+
+                <label ng-if="category.isSelected" class="btn btn-success active"
+                       ng-click="addToSelectedCategory(category)" title="{{category.description}}" data-toggle="tooltip"
+                       data-placement="top" tooltip="true">
+                    <input type="checkbox" autocomplete="off" ng-model="category.isSelected"> {{category.name}}
+                </label>
+            </div>
+            <!--
+            <label class="btn btn-success.active">
+                <input type="checkbox" autocomplete="off"> Kategoria 2
+            </label>
+
+            <label
+                    class="btn btn-success">
+                <input type="checkbox" autocomplete="off"> Kategoria 3
+            </label>
+            <label
+                    class="btn btn-success">
+                <input type="checkbox" autocomplete="off"> Kategoria 4
+            </label>
+            <label
+                    class="btn btn-success">
+                <input type="checkbox" autocomplete="off"> Kategoria 5
+            </label>
+-->
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <div id="custom-search-input" >
+            <div class="input-group col-md-12">
+                <input type="text" class="search-query form-control" placeholder="I'm searching for..."
+                       ng-model="phrase" ng-keypress="$event.keyCode == 13 && searchPhrase(phrase)"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="searchPhrase(phrase)">
+                        <span class=" glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <h1 ng-if="title!==undefined" style="margin-left: 15%;">{{title}}</h1>
+
+        <p class="text-center" ng-hide="offersIsLoaded">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+            <span class="sr-only">Loading...</span>
+        </p>
+
+        <label style="width: 70%;" ng-show="offersIsLoaded" ng-init="home='element-with-border-radius'" ng-class="home"
+               ng-mouseenter="home='element-with-border-radius-medium'"
+               ng-mouseleave="home='element-with-border-radius'"
+               ng-click="redirectToOfferPage(offer)" ng-repeat="offer in offers">
+            <div class="col-sm-5">
+                <img src="../attachment/files/{{offer.mainPhoto}}" ng-if="offer.mainPhoto!==null"
+                     style="width: 90%; height: 90%; margin: 10px">
+                <img src="../../image/seler.jpg" ng-if="offer.mainPhoto===null"
+                     style="width: 90%; height: 90%; margin: 10px">
+
+                <h3 class="element-with-border-radius" style="margin-right: 2px">
+                    {{offer.price}}
+                </h3>
+                <button class="btn btn-success" style = "margin-left: 226%;margin-bottom:5%;" ng-click="redirectToEditOffer(offer.id)" ng-hide="!isMyOfferPanel">Edit offer</button>
+                <br>
+            </div>
+            <div class="col-sm-7">
+                <h3 align="center" class="element-with-border-radius-without-margin" >
+                    <a style=" margin-left: 10px;" align="center"> {{offer.name}} </a>
+                </h3>
+                {{offer.description}}
+            </div>
+        </label>
+        <!--
+                <label ng-init="home='element-with-border-radius'" ng-class="home"
+                       ng-mouseenter="home='element-with-border-radius-medium'"
+                       ng-mouseleave="home='element-with-border-radius'"
+                       ng-click="home=''">
+                    <div class="col-sm-3">
+                        <img src="../image/seler.jpg" style="width: 90%; height: 90%; margin: 10px">
+
+                        <h3 class="element-with-border-radius">
+                            Sryliard PLN
+                        </h3>
+                    </div>
+                    <div class="col-sm-9">
+                        <h2 class="element-with-border-radius">
+                            <a style=" margin-left: 10px;"> Temat </a>
+                        </h2>
+                        Nasz elo spoko opis! Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko
+                        opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko
+                        opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko
+                        opis!Nasz elo spoko opis!Nasz elo spoko opis!
+                    </div>
+
+                </label>
+                <label ng-init="home1='element-with-border-radius'" ng-class="home1"
+                       ng-mouseenter="home1='element-with-border-radius-medium'"
+                       ng-mouseleave="home1='element-with-border-radius'"
+                       ng-click="home1=''">
+
+                    <div class="col-sm-3">
+                        <img src="../image/obraz.jpg" style="width: 90%; height: 90%; margin: 10px">
+
+                        <h3 class="element-with-border-radius">
+                            Sryliard PLN
+                        </h3>
+                    </div>
+                    <div class="col-sm-9">
+                        <h2 class="element-with-border-radius">
+                            <a style=" margin-left: 10px;"> Temat </a>
+                        </h2>
+                        Nasz elo spoko opis! Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko
+                        opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko
+                        opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko opis!Nasz elo spoko
+                        opis!Nasz elo spoko opis!Nasz elo spoko opis!
+                    </div>
+
+                </label>
+        -->
+        <div class="green">
+            <ul class="pagination">
+                <li ng-repeat="number in pageNumberTab" ng-class="{active: number===actualPageNmber}"><a ng-click="reloadPage(number, null)"
+                        href="">{{number}}</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!--
+
+</body>
+</html>
+-->

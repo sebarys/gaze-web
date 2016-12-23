@@ -1,0 +1,62 @@
+<style>
+    .carousel {
+        width: 400px;
+        height: auto;
+    }
+</style>
+
+
+<div id="Carousel" class="carousel slide" ng-if="attachments.length!==0">
+    <ol class="carousel-indicators">
+        <li ng-repeat-start="attachment in attachments" ng-if="$first" data-target="Carousel" data-slide-to="0"
+            class="active"></li>
+        <li ng-repeat-end ng-if="!$first" data-target="Carousel" data-slide-to="$index"></li>
+
+    </ol>
+    <div class="carousel-inner">
+        <div ng-repeat-start="attachment in attachments" ng-if="$first" class="item active">
+            <img src="attachment/files/{{attachment.offerId}}/{{attachment.name}}" class="img-responsive">
+        </div>
+
+        <div ng-repeat-end ng-if="!$first" class="item">
+            <img src="attachment/files/{{attachment.offerId}}/{{attachment.name}}" class="img-responsive">
+        </div>
+    </div>
+<span class="left carousel-control" data-target="#Carousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+</span>
+<span class="right carousel-control" data-target="#Carousel" data-slide="next">
+   <span class="glyphicon glyphicon-chevron-right"></span>
+</span>
+</div>
+
+<form method="POST" enctype="multipart/form-data" action="/attachment/upload">
+    <table>
+        <tr>
+            <td>File to upload:</td>
+            <td><input type="file" name="file"/></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="name"/></td>
+        </tr>
+        <tr>
+            <td>Attachment Type</td>
+            <td>
+                <select name="attachmentType">
+                    <option name="PHOTO">PHOTO</option>
+                    <option name="MOVIE">MOVIE</option>
+                    <option name="DOCUMENT">DOCUMENT</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Offer id:</td>
+            <td><input type="text" name="offerID" value="1"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Upload"/></td>
+        </tr>
+    </table>
+</form>

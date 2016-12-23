@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="text-center">
+        <h1>AngularJS - Pagination Example with logic like Google</h1>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Created at</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="stimul in stimulsList.items">
+                <td>{{stimul.name}}</td>
+                <td>{{stimul.created}}</td>
+                <td><a href="#stimuls/{{stimul.id}}" ng-click="stimulDetails(stimul)">Details</a></td>
+                <td><a href="#results?stimulId={{stimul.id}}" ng-click="stimulDetails(stimul)">Results</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- pager -->
+        <ul ng-if="stimulsList.pager.pages.length" class="pagination">
+            <li ng-class="{disabled:stimulsList.pager.currentPage === 1}">
+                <a ng-click="stimulsList.setPage(1)">First</a>
+            </li>
+            <li ng-class="{disabled:stimulsList.pager.currentPage === 1}">
+                <a ng-click="stimulsList.setPage(stimulsList.pager.currentPage - 1)">Previous</a>
+            </li>
+            <li ng-repeat="page in stimulsList.pager.pages" ng-class="{active:stimulsList.pager.currentPage === page}">
+                <a ng-click="stimulsList.setPage(page)">{{page}}</a>
+            </li>
+            <li ng-class="{disabled:stimulsList.pager.currentPage === stimulsList.pager.totalPages}">
+                <a ng-click="stimulsList.setPage(stimulsList.pager.currentPage + 1)">Next</a>
+            </li>
+            <li ng-class="{disabled:stimulsList.pager.currentPage === stimulsList.pager.totalPages}">
+                <a ng-click="stimulsList.setPage(stimulsList.pager.totalPages)">Last</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<hr />
+<div class="credits text-center">
+    <p>
+        <a href="http://jasonwatmore.com/post/2016/01/31/AngularJS-Pagination-Example-with-Logic-like-Google.aspx" target="_top">AngularJS - Pagination Example with logic like Google</a>
+    </p>
+    <p>
+        <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+    </p>
+</div>
