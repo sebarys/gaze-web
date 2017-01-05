@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Stimuls</h2>
+    <h3><p>Browse available results!</p></h3>
+    <br/>
+
+    <button href="#stimuls/{{stimul.id}}/results/add">Add new result</button>
+
+    <div class="col-sm-12">
+        <br/>
+        <h3><p>List of all results:</p></h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="result in results.resultList.result">
+                <td>{{result.id}}</td>
+                <td>{{result.name}}</td>
+                <!--tutaj jeszcze w sumie od razu moze byc przycisk do pobrania-->
+                <td>
+                    <span class="glyphicon glyphicon-remove" ng-click="deleteProduct(product)"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

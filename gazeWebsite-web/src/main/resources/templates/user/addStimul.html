@@ -1,0 +1,16 @@
+<div class="container">
+	<h2>Stimuls</h2>
+	<h3><p>Select zip file with complete Stimul and add to Stimul collection</p></h3>
+	<br/>
+
+	<form name="upload" class="form" data-ng-submit="stimuls.registerStimul()">
+		<input type="file" name="file" multiple
+			   onchange="angular.element(this).scope().uploadedFile(this)" />
+
+		<td>Stimul name:</td>
+		<td><input ng-model="stimuls.stimulName" type="text" name="stimulName"/></td>
+
+		<button type="submit">Upload </button>
+	</form>
+
+</div>

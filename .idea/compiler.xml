@@ -28,12 +28,12 @@
         <module name="gazeWebsite-web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="gaze-web" target="1.5" />
       <module name="gazeWebsite-model" target="1.5" />
       <module name="gazeWebsite-repo" target="1.5" />
-      <module name="gazeWebsite-service" target="1." />
-      <module name="gazeWebsite-web" target="1.5" />
+      <module name="gazeWebsite-service" target="1.8" />
+      <module name="gazeWebsite-web" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
