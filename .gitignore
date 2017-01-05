@@ -1,5 +1,12 @@
 *.class
 
+.classpath
+.project
+.settings/
+target/
+bower_components/
+data/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
