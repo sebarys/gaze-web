@@ -36,6 +36,12 @@
                     url: '/stimuls?page=:pageNumber&size=:pageSize'
                 },
 
+                getStimulByName: {
+					params: {pageNumber: "@pageNumber", pageSize: "@pageSize", searchPhrase: "@searchPhrase"},
+					method: 'GET',
+					url: '/stimuls?page=:pageNumber&size=:pageSize&searchPhrase=:searchPhrase'
+				},
+
                 deleteStimul: {
                     params: {stimulId: "@stimulId"},
                     method: 'DELETE',

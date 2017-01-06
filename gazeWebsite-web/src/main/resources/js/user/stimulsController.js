@@ -3,7 +3,8 @@
 
     angular.module('StimulsControllers')
         .controller('StimulsController',
-        ['StimulService', '$http','$route', '$scope', '$routeParams', function (StimulService, $http, $route, $scope, $routeParams) {
+        ['StimulService', '$http','$route', '$scope', '$routeParams', 'toaster',
+        function (StimulService, $http, $route, $scope, $routeParams, toaster) {
             var vm = this
             vm.newStimul = {}
             vm.files = {}
@@ -22,7 +23,14 @@
             }
 
             function registerStimul() {
-
+                if(vm.files[0] == null) {
+					toaster.pop('error', "Upload file", "Please add stimul file to upload");
+					return
+				}
+				if(vm.stimulName == '' || vm.stimulName.length > 100) {
+					toaster.pop('error', "Wrong stimul name", "Stimul name mus be not null and no longer than 100 char");
+					return
+				}
                 var fd = new FormData()
                 fd.append('stimulName', vm.stimulName)
                 fd.append('file', vm.files[0])
@@ -37,7 +45,14 @@
 
             function getStimulComplete(data, status, headers, config) {
                 console.log(data)
-                vm.stimulCreated =  data;
+                vm.stimulCreated = data;
+                document.getElementById('stimul-file-upload').value = null;
+                vm.stimulName = ''
+                if(data.data.success) {
+                	toaster.pop('success', "Success", data.data.info);
+                } else {
+                	toaster.pop('error', "Error", data.data.info);
+                }
             }
 
             function getStimulFailed(e) {

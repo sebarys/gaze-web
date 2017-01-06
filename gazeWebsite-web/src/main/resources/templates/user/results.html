@@ -1,31 +1,83 @@
 <div class="container">
-    <h2>Stimuls</h2>
-    <h3><p>Browse available results!</p></h3>
+    <h2>Results</h2>
+    <h3><p>Browse available results or add new one</p></h3>
     <br/>
 
-    <button href="#stimuls/{{stimul.id}}/results/add">Add new result</button>
+    <button ng-click="results.redirectToAddResults()">Add new result</button>
+
+    <hr />
+
+    <p>Search by specific feature:</p>
+    <div class="mine">
+        <p class="without-margin">Feature:</p>
+        <select class="select-result-list"
+                ng-model="results.selectedKey"
+                ng-options="key for key in results.profileKeys"
+                ng-change="results.updateKeyValues()">
+        </select>
+    </div>
+    <div class="mine">
+        <p class="without-margin">Value:</p>
+        <select class="select-result-list"
+                ng-model="results.selectedValue"
+                ng-options="value for value in results.profileValues">
+        </select>
+    </div>
+
+    <div style="display: inline-block;">
+        <button ng-click="results.filterResults()">Filter results</button>
+
+        <button ng-click="results.reset()">Reset</button>
+    </div>
 
     <div class="col-sm-12">
         <br/>
-        <h3><p>List of all results:</p></h3>
+        <h3><p>Results list:</p></h3>
+
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
+                <th>Created at</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="result in results.resultList.result">
-                <td>{{result.id}}</td>
+            <tr ng-repeat="result in results.items">
                 <td>{{result.name}}</td>
-                <!--tutaj jeszcze w sumie od razu moze byc przycisk do pobrania-->
+                <td>{{result.created}}</td>
+                <td ng-if="mainPage.userInfo.admin">
+                    <span style="cursor: pointer;" class="glyphicon glyphicon-remove"
+                          ng-click="results.deleteResult(result)">
+                    </span>
+                </td>
                 <td>
-                    <span class="glyphicon glyphicon-remove" ng-click="deleteProduct(product)"></span>
+                    <span style="cursor: pointer;" class="glyphicon glyphicon-download-alt"
+                      ng-click="results.getResult(result)">
+                    </span>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
+
+     <div>
+        <ul ng-if="results.pager.pages.length" class="pagination">
+            <li ng-class="{disabled:results.pager.currentPage === 1}">
+                <a ng-click="results.setPage(1)">First</a>
+            </li>
+            <li ng-class="{disabled:results.pager.currentPage === 1}">
+                <a ng-click="results.setPage(results.pager.currentPage - 1)">Previous</a>
+            </li>
+            <li ng-repeat="page in results.pager.pages" ng-class="{active:results.pager.currentPage === page}">
+                <a ng-click="results.setPage(page)">{{page}}</a>
+            </li>
+            <li ng-class="{disabled:results.pager.currentPage === results.pager.totalPages}">
+                <a ng-click="results.setPage(results.pager.currentPage + 1)">Next</a>
+            </li>
+            <li ng-class="{disabled:results.pager.currentPage === results.pager.totalPages}">
+                <a ng-click="results.setPage(results.pager.totalPages)">Last</a>
+            </li>
+        </ul>
+     </div>
 
 </div>

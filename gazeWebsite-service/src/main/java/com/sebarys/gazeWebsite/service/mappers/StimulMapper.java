@@ -1,10 +1,14 @@
 package com.sebarys.gazeWebsite.service.mappers;
 
 import com.sebarys.gazeWebsite.model.dbo.Attachment;
+import com.sebarys.gazeWebsite.model.dbo.Result;
 import com.sebarys.gazeWebsite.model.dbo.Stimul;
 import com.sebarys.gazeWebsite.model.dto.DtoAttachment;
+import com.sebarys.gazeWebsite.model.dto.DtoResult;
 import com.sebarys.gazeWebsite.model.dto.DtoStimul;
 import com.sebarys.gazeWebsite.repo.AttachmentRepo;
+import com.sebarys.gazeWebsite.repo.ResultRepo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +19,8 @@ public class StimulMapper implements MapperInterface<Stimul, DtoStimul> {
 
     @Autowired
     AttachmentRepo attachmentRepo;
+    @Autowired
+    ResultRepo resultRepo;
 
     @Override
     public Stimul convertToDBO(final DtoStimul dtoStimul) {
@@ -32,6 +38,16 @@ public class StimulMapper implements MapperInterface<Stimul, DtoStimul> {
                 attachments.add(attachmentRepo.findOne(attachment.getId()));
             }
             stimul.setAttachments(attachments);
+        }
+        if(dtoStimul.getResults() != null) {
+            final Set<Result> results = new HashSet<>();
+            for(DtoResult result: dtoStimul.getResults()) {
+                results.add(resultRepo.findOne(result.getId()));
+            }
+            stimul.setResults(results);
+        }
+        if (dtoStimul.getProfile() != null) {
+            stimul.setProfile(dtoStimul.getProfile());
         }
         return stimul;
     }
@@ -55,6 +71,22 @@ public class StimulMapper implements MapperInterface<Stimul, DtoStimul> {
                 attachments.add(dtoAttachment);
             }
             dtoStimul.setAttachments(attachments);
+        }
+        if(stimul.getResults() != null) {
+            final Set<DtoResult> dtoResults = new HashSet<>();
+            for(Result result: stimul.getResults()) {
+                final DtoResult dtoResult = new DtoResult();
+                dtoResult.setId(result.getId());
+                dtoResult.setName(result.getName());
+                dtoResult.setCreated(result.getCreated().getTime());
+                dtoResult.setAttachmentPath(result.getAttachmentPath());
+                dtoResult.setStimulId(result.getStimul().getId());
+                dtoResults.add(dtoResult);
+            }
+            dtoStimul.setResults(dtoResults);
+        }
+        if (stimul.getProfile() != null) {
+            dtoStimul.setProfile(stimul.getProfile());
         }
         return dtoStimul;
     }

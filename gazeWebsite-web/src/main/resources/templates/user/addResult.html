@@ -1,1 +1,16 @@
-add result TODO
+<div class="container">
+	<h2>Stimuls</h2>
+	<h3><p>Select result file and upload to add to results list</p></h3>
+	<br/>
+
+	<form name="upload" class="form" data-ng-submit="results.addResult()">
+		<div>
+			<input id="result-file-upload" type="file" name="file"
+			   	onchange="angular.element(this).scope().uploadedFile(this)" />
+		</div>
+		<div style="margin-top: 1.5rem;">
+			<button class=".btn" type="submit">Add result </button>
+		</div>
+	</form>
+
+</div>

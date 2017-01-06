@@ -1,13 +1,18 @@
 package com.sebarys.gazeWebsite.model.dbo;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-/**
- * Created by Sebastian on 2016-12-18.
- */
+import java.util.Date;
+import java.util.Map;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 public class Result {
 
@@ -19,7 +24,25 @@ public class Result {
 
     private String attachmentPath;
 
-    private  Long stimulId;
+    @ManyToOne
+    @JoinColumn(name = "stimul_id")
+    private Stimul stimul;
+
+    private String name;
+
+    @ElementCollection
+    @Cascade(value={CascadeType.ALL})
+    private Map<String, String> profile;
+
+    public Map<String, String> getProfile()
+    {
+        return profile;
+    }
+
+    public void setProfile(final Map<String, String> profile)
+    {
+        this.profile = profile;
+    }
 
     public long getId() {
         return id;
@@ -45,11 +68,21 @@ public class Result {
         this.attachmentPath = attachmentPath;
     }
 
-    public Long getStimulId() {
-        return stimulId;
+    public Stimul getStimul() {
+        return stimul;
     }
 
-    public void setStimulId(Long stimulId) {
-        this.stimulId = stimulId;
+    public void setStimul(Stimul stimul) {
+        this.stimul = stimul;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(final String name)
+    {
+        this.name = name;
     }
 }

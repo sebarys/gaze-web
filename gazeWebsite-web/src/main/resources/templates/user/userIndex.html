@@ -4,48 +4,118 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Gaze web</title>
 
     <script th:src="@{/js/bower_components/angular/angular.min.js}"></script>
     <script th:src="@{/js/bower_components/angular-route/angular-route.min.js}"></script>
     <script th:src="@{/js/bower_components/angular-resource/angular-resource.min.js}"></script>
+    <script th:src="@{/js/bower_components/angular-animate/angular-animate.min.js}"></script>
     <script th:src="@{/js/bower_components/jquery/dist/jquery.min.js}"></script>
     <script th:src="@{/js/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/bower_components/AngularJS-Toaster/toaster.min.js}"></script>
     <link rel="stylesheet" th:href="@{/js/bower_components/bootstrap/dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/js/bower_components/AngularJS-Toaster/toaster.min.css}"/>
 
     <script th:src="@{/js/user/RouteProvider.js}"></script>
+    <script th:src="@{/js/user/backDirective.js}"></script>
     <script th:src="@{/js/user/stimulsController.js}"></script>
     <script th:src="@{/js/user/stimulsDetailsController.js}"></script>
     <script th:src="@{/js/user/stimulsListController.js}"></script>
     <script th:src="@{/js/user/stimulsServices.js}"></script>
     <script th:src="@{/js/user/resultsController.js}"></script>
+    <script th:src="@{/js/user/resultsListController.js}"></script>
     <script th:src="@{/js/user/resultsServices.js}"></script>
     <script th:src="@{/js/user/attachmentsServices.js}"></script>
     <script th:src="@{/js/user/indexServices.js}"></script>
 
 </head>
-    <body>
-        <div class="container" ng-app="mainApp">
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a role="button" class="navbar-brand">Gaze-web</a>
-                    </div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#home">Home</a></li>
-                        <li><a href="#stimuls">Stimuls</a></li>
-                        <li><a href="#stimuls/new">Add new stimul</a></li>
-                        <li><a href="#results">Results</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right" ng-controller="MainPageController as mainPage">
-                        <li><a><span ng-bind="mainPage.username"></span></a></li>
-                        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                    </ul>
+<body>
+    <div class="container" ng-app="mainApp" ng-controller="MainPageController as mainPage" >
+        <toaster-container></toaster-container>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a role="button" class="navbar-brand">Gaze-web</a>
                 </div>
-            </nav>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="#stimuls">Stimuls</a></li>
+                    <li ng-if="mainPage.userInfo.admin"><a href="#stimuls/new">Add new stimul</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a><span ng-bind="mainPage.userInfo.username"></span></a></li>
+                    <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
 
-            <div ng-view="true"></div>
+        <div ng-view="true"></div>
+        <!--<div class="footer text-center">-->
+            <!--<p>-->
+                <!--Gaze website-->
+            <!--</p>-->
+        <!--</div>-->
+        <footer class="container footer text-center">
+            <p>
+                Gaze website
+            </p>
+        </footer>
+    </div>
 
-        </div>
-    </body>
+</body>
+<style>
+    .mine {
+        display: inline-block;
+        width: 13vw;
+    }
+
+    .select-result-list {
+        width: 10vw;
+    }
+
+    .without-margin {
+        margin: 0 0 0 0;
+        padding-bottom: 4%;
+    }
+
+    li {
+        cursor: pointer;
+    }
+
+    select {
+        cursor: pointer;
+    }
+
+    html {
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      position: relative;
+      margin: 0;
+      padding-bottom: 6rem;
+      min-height: 100%;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .footer {
+      position: absolute;
+      right: 5%;
+      bottom: 0;
+      left: 5%;
+      padding: 1rem;
+      background-color: #222;
+      color: #999;
+      text-align: center;
+      border-radius: 5px 5px 0px 0px;
+    }
+</style>
 </html>

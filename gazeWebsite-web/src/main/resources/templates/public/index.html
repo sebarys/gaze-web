@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <title>Take Project</title>
+
+	<script th:src="@{/js/bower_components/angular/angular.min.js}"></script>
+	<script th:src="@{/js/bower_components/angular-route/angular-route.min.js}"></script>
+	<script th:src="@{/js/bower_components/angular-resource/angular-resource.min.js}"></script>
+	<script th:src="@{/js/bower_components/jquery/dist/jquery.min.js}"></script>
+	<script th:src="@{/js/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+	<link rel="stylesheet" th:href="@{/js/bower_components/bootstrap/dist/css/bootstrap.min.css}"/>
+
+
+	<script th:src="@{/js/public/loginControllers.js}"></script>
+</head>
+<body>
+<div class="container">
+     <nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">TakeProject</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container" ng-app="loginControllers">
+
+		<h1>Login with Username and Password</h1>
+
+		<div style="padding-left: 0;" class="container col-xs-6 col-md-4">
+			<form method='POST' action='/login' ng-controller="loginController">
+				<div class="form-group">
+					<label for="username">Username:</label>
+					<input type="text" class="form-control" id="username" name="username" placeholder="Enter username" ng-model="user.username"/>
+				</div>
+				<div class="form-group">
+					<label for="password">Password:</label>
+					<input type="password" class="form-control" id="password" name="password" placeholder="Enter password" ng-model="user.password"/>
+				</div>
+				<input name="submit" type="submit" value="Login" class="btn btn-default"/>
+				<input name="url" type="text" value="{{nextUrl()}}" style="visibility: hidden" />
+			</form>
+		</div>
+
+	</div>
+</div>
+</body>
+</html>

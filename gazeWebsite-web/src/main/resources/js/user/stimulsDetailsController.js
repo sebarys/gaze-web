@@ -3,8 +3,8 @@
 
     angular.module('StimulsControllers')
         .controller('StimulsDetailsController',
-        ['StimulService','AttachmentsService', '$http','$route', '$scope', '$routeParams', '$location',
-        function (StimulService, AttachmentsService, $http, $route, $scope, $routeParams, $location) {
+        ['StimulService','AttachmentsService', '$http','$route', '$scope', '$routeParams', '$location', 'toaster',
+        function (StimulService, AttachmentsService, $http, $route, $scope, $routeParams, $location, toaster) {
             var vm = this
             vm.stimul = {}
             vm.downloadStimul = downloadStimul
@@ -37,6 +37,7 @@
             function downloadStimul() {
 
 				if ($routeParams.stimulId === undefined || $routeParams.stimulId === null) {
+					console.log("required route params undefined")
 					return;
 				}
 
@@ -47,7 +48,7 @@
                     var url = URL.createObjectURL(new Blob([responseObj.data]));
                     var a = document.createElement('a');
                     a.href = url;
-                    a.download = 'document_name.zip';
+                    a.download = vm.stimul.name + '.zip';
                     a.target = '_blank';
                     a.click();
                 })
@@ -55,16 +56,22 @@
 
             function deleteStimul(stimulId) {
             	if ($routeParams.stimulId === undefined || $routeParams.stimulId === null) {
+					console.log("required route params undefined")
 					return;
 				}
 				StimulService.deleteStimul({stimulId: $routeParams.stimulId}).$promise.then( function (response) {
 					console.log(response)
 					$location.path("/stimuls")
+					if(response.success) {
+						toaster.pop('success', "Success", response.info);
+					} else {
+						toaster.pop('error', "Error", response.info);
+					}
 				})
 			}
 
 			function getAttachment(attachment) {
-			console.log("try to get attachment")
+				console.log("try to get attachment")
                 AttachmentsService.getAttachment({attachmentId: attachment.id}).$promise.then( function (responseObj) {
                     console.log(responseObj)
 					var url = URL.createObjectURL(new Blob([responseObj.data]));

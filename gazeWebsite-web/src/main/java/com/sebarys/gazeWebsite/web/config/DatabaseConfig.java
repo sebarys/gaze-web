@@ -20,11 +20,6 @@ import java.util.Properties;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.sebarys.gazeWebsite.repo")
 @PropertySource({"classpath:application.properties"})
-/*@EnableJpaRepositories(
-        basePackages = "org.baeldung.persistence.multiple.dao.user",
-        entityManagerFactoryRef = "userEntityManager",
-        transactionManagerRef = "userTransactionManager"
-)*/
 @ImportResource("classpath:/config/DatabaseConfig.xml")
 public class DatabaseConfig {
     @Autowired
@@ -80,7 +75,6 @@ public class DatabaseConfig {
         dataSourceConfig.setUrl(env.getRequiredProperty("db.url"));
         dataSourceConfig.setUsername(env.getRequiredProperty("db.username"));
         dataSourceConfig.setPassword(env.getRequiredProperty("db.password"));
-
         return dataSourceConfig;
     }
 

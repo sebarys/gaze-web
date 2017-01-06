@@ -1,17 +1,30 @@
 package com.sebarys.gazeWebsite.model.dto;
 
-/**
- * Created by Sebastian on 2016-12-18.
- */
+import java.util.Map;
+
 public class DtoResult {
 
     private Long id;
 
     private Long created;
 
+    private String name;
+
     private String attachmentPath;
 
     private Long stimulId;
+
+    private Map<String, String> profile;
+
+    public Map<String, String> getProfile()
+    {
+        return profile;
+    }
+
+    public void setProfile(final Map<String, String> profile)
+    {
+        this.profile = profile;
+    }
 
     public Long getId() {
         return id;
@@ -27,6 +40,16 @@ public class DtoResult {
 
     public void setCreated(Long created) {
         this.created = created;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(final String name)
+    {
+        this.name = name;
     }
 
     public String getAttachmentPath() {

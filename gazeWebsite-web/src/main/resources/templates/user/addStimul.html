@@ -4,13 +4,17 @@
 	<br/>
 
 	<form name="upload" class="form" data-ng-submit="stimuls.registerStimul()">
-		<input type="file" name="file" multiple
-			   onchange="angular.element(this).scope().uploadedFile(this)" />
 
-		<td>Stimul name:</td>
-		<td><input ng-model="stimuls.stimulName" type="text" name="stimulName"/></td>
+		<div>
+			<input id="stimul-file-upload" type="file" name="file"
+				   onchange="angular.element(this).scope().uploadedFile(this)" />
+		</div>
+		<div style="margin-top: 1.5rem;">
+			<td>Stimul name:</td>
+			<td><input ng-model="stimuls.stimulName" type="text" name="stimulName"/></td>
 
-		<button type="submit">Upload </button>
+			<button type="submit">Upload </button>
+		</div>
 	</form>
 
 </div>

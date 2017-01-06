@@ -34,7 +34,12 @@
             <artifactId>aspectjweaver</artifactId>
             <version>1.8.0</version>
         </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+	</dependencies>
 
 
 </project>

@@ -1,25 +1,29 @@
 package com.sebarys.gazeWebsite.service;
 
-import com.oracle.tools.packager.IOUtils;
-import com.sebarys.gazeWebsite.model.dbo.Attachment;
-import com.sebarys.gazeWebsite.model.dto.DtoAttachment;
-import com.sebarys.gazeWebsite.model.dto.DtoStimul;
-import com.sebarys.gazeWebsite.repo.AttachmentRepo;
-import com.sebarys.gazeWebsite.service.mappers.AttachmentMapper;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-import sun.nio.ch.IOUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.oracle.tools.packager.IOUtils;
+import com.sebarys.gazeWebsite.model.dbo.Attachment;
+import com.sebarys.gazeWebsite.model.dto.DtoAttachment;
+import com.sebarys.gazeWebsite.model.dto.DtoStimul;
+import com.sebarys.gazeWebsite.repo.AttachmentRepo;
+import com.sebarys.gazeWebsite.service.mappers.AttachmentMapper;
 
 @Service
 public class AttachmentService extends AbstractService<Attachment, DtoAttachment, AttachmentRepo, AttachmentMapper> {
@@ -35,7 +39,6 @@ public class AttachmentService extends AbstractService<Attachment, DtoAttachment
         dtoAttachment.setName(name);
         final Attachment attachement = repo.save(mapper.convertToDBO(dtoAttachment));
         return attachement.getId();
-
     }
 
     public void saveFile(final Long stimulId, final MultipartFile file) throws IOException {
@@ -77,8 +80,7 @@ public class AttachmentService extends AbstractService<Attachment, DtoAttachment
                 attachment.setName(fileName);
                 final File newFile = new File(RESOURCE_DATA_PATH + stimulId + File.separator + stimulName + File.separator + fileName);
 
-                //create all non exists folders
-                //else you will hit FileNotFoundException for compressed folder
+                //create all non existing folders else will throw exception
                 new File(newFile.getParent()).mkdirs();
 
                 final FileOutputStream fos = new FileOutputStream(newFile);
@@ -137,4 +139,5 @@ public class AttachmentService extends AbstractService<Attachment, DtoAttachment
         final File newFile = new File(stimul.getAttachmentsPath() + File.separator + attachment.getName());
         return IOUtils.readFully(newFile);
     }
+
 }

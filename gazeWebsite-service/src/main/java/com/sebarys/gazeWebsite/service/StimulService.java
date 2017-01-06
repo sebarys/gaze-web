@@ -1,21 +1,22 @@
 package com.sebarys.gazeWebsite.service;
 
-import com.sebarys.gazeWebsite.model.dbo.Attachment;
-import com.sebarys.gazeWebsite.model.dbo.Stimul;
-import com.sebarys.gazeWebsite.model.dto.DtoAttachment;
-import com.sebarys.gazeWebsite.model.dto.DtoStimul;
-import com.sebarys.gazeWebsite.repo.StimulRepo;
-import com.sebarys.gazeWebsite.service.mappers.StimulMapper;
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
-import java.util.Set;
+import com.sebarys.gazeWebsite.model.dbo.Stimul;
+import com.sebarys.gazeWebsite.model.dto.ActionResult;
+import com.sebarys.gazeWebsite.model.dto.DtoAttachment;
+import com.sebarys.gazeWebsite.model.dto.DtoStimul;
+import com.sebarys.gazeWebsite.repo.StimulRepo;
+import com.sebarys.gazeWebsite.service.mappers.StimulMapper;
 
 @Service
 public class StimulService extends AbstractService<Stimul, DtoStimul, StimulRepo, StimulMapper> {
@@ -23,13 +24,13 @@ public class StimulService extends AbstractService<Stimul, DtoStimul, StimulRepo
     //FIXME zmienic na logger albo usunac wpisy
     @Autowired
     AttachmentService attachmentService;
+    @Autowired
+    ResultService resultService;
 
     private static final String RESOURCE_DATA_PATH = "gazeWebsite-web/src/main/resources/data";
 
-    public boolean createStimul(final String stimulName, final MultipartFile file)
+    public ActionResult createStimul(final String stimulName, final MultipartFile file)
     {
-        if(stimulName.isEmpty() || stimulName.length()> 100)
-            return false;
         DtoStimul dtoStimul = new DtoStimul();
         dtoStimul.setName(stimulName);
         dtoStimul.setCreated(new Date().getTime());
@@ -40,7 +41,7 @@ public class StimulService extends AbstractService<Stimul, DtoStimul, StimulRepo
         dtoStimul.setAttachmentsPath(RESOURCE_DATA_PATH + File.separator + dtoStimul.getId()
                 + File.separator + dtoStimul.getName());
         save(dtoStimul);
-        return true;
+        return new ActionResult(true, "Stimul created successfully with ID: " + dtoStimul.getId());
     }
 
     public DtoStimul getStimulDetails(final Long stimulId) {
@@ -61,25 +62,23 @@ public class StimulService extends AbstractService<Stimul, DtoStimul, StimulRepo
         return null;
     }
 
-    public boolean deleteStimul(final Long stimulId) {
+    public ActionResult deleteStimul(final Long stimulId) {
         final DtoStimul stimulToDelete = findOne(stimulId);
         if(stimulToDelete == null) {
-            return false;
+            return new ActionResult(false, "Coundn't find given stimul");
         }
+        stimulToDelete.getResults()
+                .forEach(dtoResult -> resultService.deleteResult(dtoResult.getId()));
         File rootFolder = new File(stimulToDelete.getAttachmentsPath());
-        if(rootFolder == null) {
-            return false;
-        }
-        try {
-            deleteFile(rootFolder);
-        } catch (IOException e) {
-            return false;
-        }
+
+        deleteFile(rootFolder);
+
         delete(stimulToDelete);
-        return true;
+        return new ActionResult(true, "Stimul deleted successfully");
     }
 
-    private static void deleteFile(final File file) throws IOException{
+    private static void deleteFile(final File file)
+    {
         if(file.isDirectory()){
             //directory is empty, then deleteFile it
             if(file.list().length==0){
@@ -114,6 +113,14 @@ public class StimulService extends AbstractService<Stimul, DtoStimul, StimulRepo
 
     public Page<DtoStimul> listAllByPage(final Pageable pageable) {
         final Page<Stimul> stimulPage = repo.findAll(pageable);
+        final Page<DtoStimul> dtoStimuls = stimulPage.map(stimul -> getMapper().convertToDTO(stimul));
+        dtoStimuls.getContent()
+                .forEach(dtoStimul -> dtoStimul.setAttachments(null));
+        return dtoStimuls;
+    }
+
+    public Page<DtoStimul> searchStimulByName(final Pageable pageable, final String stimulName) {
+        final Page<Stimul> stimulPage = repo.findByNameLike("%" + stimulName + "%", pageable);
         final Page<DtoStimul> dtoStimuls = stimulPage.map(stimul -> getMapper().convertToDTO(stimul));
         dtoStimuls.getContent()
                 .forEach(dtoStimul -> dtoStimul.setAttachments(null));

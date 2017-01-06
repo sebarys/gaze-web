@@ -3,11 +3,9 @@
     <h3><p>Download, delete stimul, or get attachments one by one</p></h3>
     <br/>
 
-
     <button ng-click="stimulDetails.downloadStimul()">Download stimul</button>
 
-
-    <button ng-click="stimulDetails.deleteStimul()">Delete stimul</button>
+    <button ng-if="mainPage.userInfo.admin" ng-click="stimulDetails.deleteStimul()">Delete stimul</button>
 
 	<div class="col-sm-12">
         <br/>

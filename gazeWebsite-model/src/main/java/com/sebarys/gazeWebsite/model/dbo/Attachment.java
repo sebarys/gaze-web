@@ -1,7 +1,5 @@
 package com.sebarys.gazeWebsite.model.dbo;
 
-import com.sebarys.gazeWebsite.model.AttachmentType;
-
 import javax.persistence.*;
 
 
@@ -13,8 +11,6 @@ public class Attachment {
     private long id;
 
     private String name;
-
-    private AttachmentType attachmentType;
 
     @ManyToOne
     @JoinColumn(name = "stimul_id")
@@ -44,11 +40,4 @@ public class Attachment {
         this.stimul = stimul;
     }
 
-    public AttachmentType getAttachmentType() {
-        return attachmentType;
-    }
-
-    public void setAttachmentType(AttachmentType attachmentType) {
-        this.attachmentType = attachmentType;
-    }
 }

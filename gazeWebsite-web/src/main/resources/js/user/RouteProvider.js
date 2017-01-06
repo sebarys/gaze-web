@@ -1,10 +1,10 @@
 (function() {
     'use strict';
-    angular.module('StimulsControllers', ['ngResource']);
-    angular.module('ResultsControllers', ['ngResource']);
+    angular.module('StimulsControllers', ['toaster', 'ngAnimate', 'ngResource']);
+    angular.module('ResultsControllers', ['toaster', 'ngAnimate', 'ngResource']);
     angular.module('AttachmentsControllers', ['ngResource']);
 
-    var mainApp = angular.module("mainApp", ['ngRoute', 'StimulsControllers', 'ResultsControllers', 'AttachmentsControllers', 'IndexServices']);
+    var mainApp = angular.module("mainApp", ['ngRoute', 'StimulsControllers', 'ResultsControllers', 'AttachmentsControllers', 'IndexServices', 'directives']);
 
     mainApp.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.
@@ -28,11 +28,11 @@
 
             when('/stimuls/:stimulId/results', {
                 templateUrl: '/templates/user/results.html',
-                controller: 'ResultsController',
+                controller: 'ResultsListController',
                 controllerAs: 'results'
             }).
 
-            when('/stimuls/:stimulId/results/add', {
+            when('/stimuls/:stimulId/results/new', {
                 templateUrl: '/templates/user/addResult.html',
                 controller: 'ResultsController',
                 controllerAs: 'results'
@@ -53,12 +53,12 @@
 
     mainApp.controller('MainPageController',['$scope', 'IndexService', function($scope, IndexService) {
         var vm = this
-        vm.username = ''
+        vm.userInfo = {}
 
         function init() {
             IndexService.getLoggedUsername(function (response) {
                 console.log(response)
-                vm.username = response.name
+                vm.userInfo = response
             })
         }
         init()

@@ -8,10 +8,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
-/**
- * Created by Sebastian on 2016-10-29.
- */
-
 @SpringBootApplication
 @ComponentScan(basePackages = "com.sebarys.gazeWebsite")
 public class Application extends SpringBootServletInitializer {

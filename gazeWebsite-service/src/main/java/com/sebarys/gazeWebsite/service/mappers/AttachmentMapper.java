@@ -1,9 +1,9 @@
 package com.sebarys.gazeWebsite.service.mappers;
 
-import com.sebarys.gazeWebsite.model.AttachmentType;
 import com.sebarys.gazeWebsite.model.dbo.Attachment;
 import com.sebarys.gazeWebsite.model.dbo.Stimul;
 import com.sebarys.gazeWebsite.model.dto.DtoAttachment;
+import com.sebarys.gazeWebsite.repo.ResultRepo;
 import com.sebarys.gazeWebsite.repo.StimulRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,13 +16,13 @@ public class AttachmentMapper implements MapperInterface<Attachment, DtoAttachme
 
     @Autowired
     StimulRepo stimulRepo;
+    @Autowired
+    ResultRepo resultRepo;
 
     @Override
     public Attachment convertToDBO(final DtoAttachment dtoAttachment) {
         final Attachment attachment = new Attachment();
-        //attachment.setId(dtoAttachment.getId());
         attachment.setName(dtoAttachment.getName());
-        attachment.setAttachmentType(AttachmentType.PHOTO);
         if(dtoAttachment.getStimulId() != null) {
             Stimul stimul = stimulRepo.findOne(dtoAttachment.getStimulId());
             if(stimul != null) {

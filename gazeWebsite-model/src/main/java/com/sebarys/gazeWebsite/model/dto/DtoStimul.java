@@ -1,10 +1,8 @@
 package com.sebarys.gazeWebsite.model.dto;
 
+import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by Sebastian on 2016-11-19.
- */
 public class DtoStimul {
 
     private Long id;
@@ -15,7 +13,11 @@ public class DtoStimul {
 
     private String attachmentsPath;
 
-    private Set<DtoAttachment> attachements;
+    private Set<DtoAttachment> attachments;
+
+    private Set<DtoResult> results;
+
+    private Map<String, String> profile;
 
     public Long getId() {
         return id;
@@ -50,10 +52,30 @@ public class DtoStimul {
     }
 
     public Set<DtoAttachment> getAttachments() {
-        return attachements;
+        return attachments;
     }
 
     public void setAttachments(Set<DtoAttachment> attachments) {
-        this.attachements = attachments;
+        this.attachments = attachments;
+    }
+
+    public Set<DtoResult> getResults()
+    {
+        return results;
+    }
+
+    public void setResults(final Set<DtoResult> results)
+    {
+        this.results = results;
+    }
+
+    public Map<String, String> getProfile()
+    {
+        return profile;
+    }
+
+    public void setProfile(final Map<String, String> profile)
+    {
+        this.profile = profile;
     }
 }
