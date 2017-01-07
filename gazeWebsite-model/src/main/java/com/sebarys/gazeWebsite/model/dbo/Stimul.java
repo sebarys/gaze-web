@@ -23,10 +23,6 @@ public class Stimul {
 
     private String attachmentsPath;
 
-    @ElementCollection
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private Map<String, String> profile;
-
     @OneToMany(mappedBy = "stimul", cascade = CascadeType.ALL)
     private Set<Attachment> attachments;
 
@@ -83,13 +79,4 @@ public class Stimul {
         this.results = results;
     }
 
-    public Map<String, String> getProfile()
-    {
-        return profile;
-    }
-
-    public void setProfile(final Map<String, String> profile)
-    {
-        this.profile = profile;
-    }
 }

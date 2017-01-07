@@ -17,8 +17,6 @@ public class DtoStimul {
 
     private Set<DtoResult> results;
 
-    private Map<String, String> profile;
-
     public Long getId() {
         return id;
     }
@@ -69,13 +67,4 @@ public class DtoStimul {
         this.results = results;
     }
 
-    public Map<String, String> getProfile()
-    {
-        return profile;
-    }
-
-    public void setProfile(final Map<String, String> profile)
-    {
-        this.profile = profile;
-    }
 }

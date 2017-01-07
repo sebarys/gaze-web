@@ -46,9 +46,6 @@ public class StimulMapper implements MapperInterface<Stimul, DtoStimul> {
             }
             stimul.setResults(results);
         }
-        if (dtoStimul.getProfile() != null) {
-            stimul.setProfile(dtoStimul.getProfile());
-        }
         return stimul;
     }
 
@@ -84,9 +81,6 @@ public class StimulMapper implements MapperInterface<Stimul, DtoStimul> {
                 dtoResults.add(dtoResult);
             }
             dtoStimul.setResults(dtoResults);
-        }
-        if (stimul.getProfile() != null) {
-            dtoStimul.setProfile(stimul.getProfile());
         }
         return dtoStimul;
     }

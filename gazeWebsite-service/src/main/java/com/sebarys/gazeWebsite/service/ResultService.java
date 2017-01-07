@@ -58,10 +58,6 @@ public class ResultService extends AbstractService<Result, DtoResult, ResultRepo
 				.get(0).getData();
 		dtoResult.setProfile(profileData);
 		final DtoStimul stimulDto = stimulService.findOne(stimulId);
-		if(stimulDto.getProfile().isEmpty()) {
-			stimulDto.setProfile(profileData);
-			stimulService.save(stimulDto);
-		}
 		save(dtoResult);
 		return new ActionResult(true, "Result saved successfuly with ID: " + dtoResult.getId());
 	}
