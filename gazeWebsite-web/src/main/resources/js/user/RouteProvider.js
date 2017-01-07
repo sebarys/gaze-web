@@ -6,7 +6,7 @@
 
     var mainApp = angular.module("mainApp", ['ngRoute', 'StimulsControllers', 'ResultsControllers', 'AttachmentsControllers', 'IndexServices', 'directives']);
 
-    mainApp.config(['$routeProvider', function ($routeProvider) {
+    mainApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider.
             when('/stimuls', {
                 templateUrl: '/templates/user/stimuls.html',
@@ -49,6 +49,8 @@
                 controller: 'StimulsController',
                 controllerAs: 'stimuls'
             });
+
+	   	$locationProvider.hashPrefix('');
     }]);
 
     mainApp.controller('MainPageController',['$scope', 'IndexService', function($scope, IndexService) {

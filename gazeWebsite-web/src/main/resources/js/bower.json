@@ -1,8 +1,8 @@
 {
-  "name": "trainingCompany",
-  "homepage": "https://github.com/LabBD/LabBD",
+  "name": "gaze-web",
+  "homepage": "https://github.com/sebarys/gaze-web",
   "authors": [
-    "LabBD <gorfion1@gmail.com>"
+    "Gazeweb <rysztun@gmail.com>"
   ],
   "description": "bower file with dependency",
   "main": "index.html",
@@ -22,11 +22,10 @@
     "angular-resource": "latest",
     "bootstrap": "^3.0.0",
     "angular-ui-grid": "^3.1.1",
-    "font-awesome": "fontawesome#^4.6.1",
-    "form.validation": "*",
-    "bootstrap-formhelpers": "bootstrap-form-helpers#^2.3.0",
-    "AngularJS-Toaster": "angularjs-toaster#^2.0.0",
-    "angular-google-chart": "0.1.0"
+//    "font-awesome": "fontawesome#^4.6.1",
+//    "form.validation": "*",
+//    "bootstrap-formhelpers": "bootstrap-form-helpers#^2.3.0",
+    "AngularJS-Toaster": "angularjs-toaster#^2.0.0"
   },
   "resolutions": {
     "angular": "1.5.5"
