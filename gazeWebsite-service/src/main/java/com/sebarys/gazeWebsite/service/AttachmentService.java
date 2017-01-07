@@ -7,18 +7,19 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.oracle.tools.packager.IOUtils;
 import com.sebarys.gazeWebsite.model.dbo.Attachment;
 import com.sebarys.gazeWebsite.model.dto.DtoAttachment;
 import com.sebarys.gazeWebsite.model.dto.DtoStimul;
@@ -137,7 +138,7 @@ public class AttachmentService extends AbstractService<Attachment, DtoAttachment
         DtoAttachment attachment = findOne(attachmentId);
         DtoStimul stimul = stimulService.findOne(attachment.getStimulId());
         final File newFile = new File(stimul.getAttachmentsPath() + File.separator + attachment.getName());
-        return IOUtils.readFully(newFile);
+        return IOUtils.toByteArray(new FileInputStream(newFile));
     }
 
 }
