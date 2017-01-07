@@ -19,7 +19,7 @@
 					console.log("required route params undefined")
 					return;
 				}
-                if(vm.files == null) {
+                if((vm.files ==  null) || (vm.files.length == 0)) {
                 	toaster.pop('error', "Upload file", "Please add result file to upload");
                 	return
                 }

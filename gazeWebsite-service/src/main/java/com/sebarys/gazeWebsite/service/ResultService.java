@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,7 +27,9 @@ import pl.kasprowski.tet.data.Results;
 
 @Service
 public class ResultService extends AbstractService<Result, DtoResult, ResultRepo, ResultMapper> {
-	//FIXME do configa z tym
+
+
+	private static final Logger logger = Logger.getLogger(ResultService.class);
 	private static final String RESOURCE_DATA_PATH = "gazeWebsite-web/src/main/resources/data";
 	private static final String PROFILE_READINGS = "PROFILE";
 
@@ -133,8 +136,7 @@ public class ResultService extends AbstractService<Result, DtoResult, ResultRepo
 			if(file.list().length==0){
 
 				file.delete();
-				System.out.println("Directory is deleted : "
-						+ file.getAbsolutePath());
+				logger.info("Directory is deleted : " + file.getAbsolutePath());
 			}
 			else {
 				//list all the directory contents
@@ -148,15 +150,14 @@ public class ResultService extends AbstractService<Result, DtoResult, ResultRepo
 				//check the directory again, if empty then deleteFile it
 				if(file.list().length==0){
 					file.delete();
-					System.out.println("Directory is deleted : "
-							+ file.getAbsolutePath());
+					logger.info("Directory is deleted : " + file.getAbsolutePath());
 				}
 			}
 		}
 		else {
 			//if file, then deleteFile it
 			file.delete();
-			System.out.println("File is deleted : " + file.getAbsolutePath());
+			logger.info("File is deleted : " + file.getAbsolutePath());
 		}
 	}
 }

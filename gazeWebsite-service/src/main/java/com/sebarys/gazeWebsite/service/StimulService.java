@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +22,8 @@ import com.sebarys.gazeWebsite.service.mappers.StimulMapper;
 @Service
 public class StimulService extends AbstractService<Stimul, DtoStimul, StimulRepo, StimulMapper> {
 
-    //FIXME zmienic na logger albo usunac wpisy
+    private static final Logger logger = Logger.getLogger(StimulService.class);
+
     @Autowired
     AttachmentService attachmentService;
     @Autowired
@@ -84,8 +86,7 @@ public class StimulService extends AbstractService<Stimul, DtoStimul, StimulRepo
             if(file.list().length==0){
 
                 file.delete();
-                System.out.println("Directory is deleted : "
-                        + file.getAbsolutePath());
+                logger.info("Directory is deleted : " + file.getAbsolutePath());
             }
             else {
                 //list all the directory contents
@@ -99,15 +100,14 @@ public class StimulService extends AbstractService<Stimul, DtoStimul, StimulRepo
                 //check the directory again, if empty then deleteFile it
                 if(file.list().length==0){
                     file.delete();
-                    System.out.println("Directory is deleted : "
-                            + file.getAbsolutePath());
+                    logger.info("Directory is deleted : "+ file.getAbsolutePath());
                 }
             }
         }
         else {
             //if file, then deleteFile it
             file.delete();
-            System.out.println("File is deleted : " + file.getAbsolutePath());
+            logger.info("File is deleted : " + file.getAbsolutePath());
         }
     }
 
