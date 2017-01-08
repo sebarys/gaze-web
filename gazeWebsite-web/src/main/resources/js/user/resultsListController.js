@@ -29,8 +29,9 @@
             var knownKeysValues = {
 				"samochód" : ["tak", "nie"],
 				"płeć" : ["mężczyzna", "kobieta"],
-				"wiek" : ["0-20", "20-40", "40-60", "60-80"],
-				"wykształcenie" : ["niższe", "podstawowe", "średnie", "wyższe"]
+				"wiek" : ["0-20", "20-30", "30-40", "40-50", "50-60", "60+"],
+				"wykształcenie" : ["niższe", "podstawowe", "średnie", "wyższe"],
+				"kwalifikacje" : ["laik", "dentysta", "implantolog"]
 			}
 
             function init() {
