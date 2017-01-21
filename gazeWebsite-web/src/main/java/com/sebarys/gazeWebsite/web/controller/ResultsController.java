@@ -37,7 +37,6 @@ public class ResultsController extends AbstractController<Result, DtoResult, Res
 	public Page<DtoResult> getResultPage(@PathVariable final Long stimulId, final Pageable pageable,
 			final String key, final String value) {
 		if(key != null && value != null) {
-			logger.info("Getting filtered page: key " + key +", value " +  value);
 			return service.listAllByFilteredPage(stimulId, pageable, key, value);
 		}
 		return service.listAllByPage(stimulId, pageable);
