@@ -23,6 +23,7 @@
             vm.getResult = getResult
             vm.updateKeyValues = updateKeyValues
             vm.filterResults = filterResults
+            vm.getFilteredResults = getFilteredResults
 			vm.reset = reset
 
             var initialized = false
@@ -105,7 +106,28 @@
 					a.click();
 				})
 				.catch(function(error) {
-					console.log(error.data)
+					console.log(error)
+				})
+			}
+
+			function getFilteredResults() {
+				if ($routeParams.stimulId === undefined || $routeParams.stimulId === null) {
+					console.log("required route params undefined")
+					return;
+				}
+				console.log("try to get results")
+				ResultService.getFilteredResults({stimulId: $routeParams.stimulId, key: vm.selectedKey, value: vm.selectedValue})
+				.$promise.then( function (responseObj) {
+					console.log(responseObj)
+					var url = URL.createObjectURL(new Blob([responseObj.data]));
+					var a = document.createElement('a');
+					a.href = url;
+					a.download = "results_" + vm.selectedKey + "_" + vm.selectedValue + ".zip";
+					a.target = '_blank';
+					a.click();
+				})
+				.catch(function(error) {
+					console.log(error)
 				})
 			}
 

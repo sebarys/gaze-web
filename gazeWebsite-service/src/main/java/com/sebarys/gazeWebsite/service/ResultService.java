@@ -1,5 +1,7 @@
 package com.sebarys.gazeWebsite.service;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -7,6 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.Map;
+import java.util.Set;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -155,5 +160,39 @@ public class ResultService extends AbstractService<Result, DtoResult, ResultRepo
 			file.delete();
 			logger.info("File is deleted : " + file.getAbsolutePath());
 		}
+	}
+
+	public byte[] getResultsData(final Long stimulId, final String key, final String value) throws Exception
+	{
+		//find results by given key-value zip files
+		final Set<Result> filteredResults = repo.findByProfileKey(stimulId, key, value);
+
+		//convert files to one zip and return as bytes array
+		final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		final ZipOutputStream zos = new ZipOutputStream(baos);
+		byte bytes[] = new byte[2048];
+
+		for (Result result : filteredResults) {
+			FileInputStream fis = new FileInputStream(result.getAttachmentPath());
+			BufferedInputStream bis = new BufferedInputStream(fis);
+
+			zos.putNextEntry(new ZipEntry(result.getName()));
+
+			int bytesRead;
+			while ((bytesRead = bis.read(bytes)) != -1) {
+				zos.write(bytes, 0, bytesRead);
+			}
+			zos.closeEntry();
+			bis.close();
+			fis.close();
+		}
+		if (zos != null) {
+			zos.finish();
+			zos.flush();
+			zos.close();
+		}
+		baos.close();
+
+		return baos.toByteArray();
 	}
 }

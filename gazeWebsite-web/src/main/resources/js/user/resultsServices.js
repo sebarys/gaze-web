@@ -26,6 +26,18 @@
 					url: '/stimuls/:stimulId/results?page=:pageNumber&size=:pageSize&key=:key&value=:value'
 				},
 
+				getFilteredResults: {
+					params: {stimulId: "@stimulId", key: "@key", value: "@value"},
+					method: 'GET',
+					url: '/stimuls/:stimulId/results/data?key=:key&value=:value',
+					responseType: 'arraybuffer',
+					transformResponse: function(data) {
+						return {
+							data: data
+						}
+					}
+				},
+
                 getResult: {
                     params: {stimulId: "@stimulId", resultId: "@resultId"},
                     method: 'GET',

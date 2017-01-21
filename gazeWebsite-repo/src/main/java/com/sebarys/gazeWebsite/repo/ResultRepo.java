@@ -24,4 +24,10 @@ public interface ResultRepo extends PagingAndSortingRepository<Result, Long> {
 					+ "p.profile_key = ?2 AND p.profile = ?3",
 			nativeQuery = true)
 	Page<Result> findByProfileKey(final Long stimulId, final String key, final String value, Pageable pageable);
+
+	@Query(value = "SELECT * FROM db.result res JOIN db.result_profile p " +
+			"WHERE res.stimul_id = ?1 AND res.id = p.result AND "
+			+ "p.profile_key = ?2 AND p.profile = ?3 ORDER BY id",
+			nativeQuery = true)
+	Set<Result> findByProfileKey(final Long stimulId, final String key, final String value);
 }

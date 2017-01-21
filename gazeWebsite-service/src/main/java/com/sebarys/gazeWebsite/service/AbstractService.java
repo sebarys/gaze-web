@@ -12,7 +12,11 @@ import org.springframework.data.repository.CrudRepository;
  * @R repository extends CrudRepository
  * @M mapper implements MapperInterface
  */
-public abstract class AbstractService<DBO, DTO, R extends CrudRepository<DBO, Long>, M extends MapperInterface<DBO, DTO>> {
+public abstract class AbstractService
+        <DBO,
+        DTO,
+        R extends CrudRepository<DBO, Long>,
+        M extends MapperInterface<DBO, DTO>> {
 
     @Autowired
     R repo;
@@ -52,3 +56,5 @@ public abstract class AbstractService<DBO, DTO, R extends CrudRepository<DBO, Lo
         return mapper;
     }
 }
+
+

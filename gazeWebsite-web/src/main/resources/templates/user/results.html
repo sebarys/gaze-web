@@ -28,6 +28,8 @@
         <button ng-click="results.filterResults()">Filter results</button>
 
         <button ng-click="results.reset()">Reset</button>
+
+        <button ng-show="results.filteredResults" ng-click="results.getFilteredResults()">Get filtered results</button>
     </div>
 
     <div class="col-sm-12">
